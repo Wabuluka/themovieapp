@@ -1,0 +1,19 @@
+import { Field, ErrorMessage } from "formik";
+import { TextError } from "./TextError";
+export function Input({ name, placeholder, type, ...rest }) {
+  return (
+    <div className="mb-3">
+      {/* <div className="form-control"> */}
+      <Field
+        className="form-control"
+        placeholder={placeholder}
+        id={name}
+        name={name}
+        type={type}
+        {...rest}
+      />
+      <ErrorMessage component={TextError} name={name} />
+      {/* </div> */}
+    </div>
+  );
+}
