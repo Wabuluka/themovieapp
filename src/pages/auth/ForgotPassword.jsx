@@ -1,12 +1,11 @@
+import { Link } from "react-router";
+import { DefaultButton } from "../../components/buttons/DefaultButton";
 import { Form, Formik } from "formik";
 import { FormControl } from "../../components/form/FormControl";
-import { DefaultButton } from "../../components/buttons/DefaultButton";
-import { Link } from "react-router";
 
-export function Login() {
+export function ForgotPassword() {
   const initialValues = {
     email: "",
-    password: "",
   };
   const onSubmit = (values) => {
     console.log("Form data", values);
@@ -14,7 +13,7 @@ export function Login() {
   return (
     <div className="d-flex justify-content-center align-items-center authorization-page">
       <div className="col-lg-6 col-md-12 col-sm-12 mx-auto">
-        <p className="lead left">Login to continue.</p>
+        <p className="lead left">Reset password.</p>
         <Formik initialValues={initialValues} onSubmit={onSubmit}>
           {() => {
             return (
@@ -25,24 +24,15 @@ export function Login() {
                   placeholder="Email"
                   type="email"
                 />
-                <FormControl
-                  name="password"
-                  control="input"
-                  placeholder="Password"
-                  type="password"
-                />
-                <DefaultButton type="submit" label="Login" />
+
+                <DefaultButton type="submit" label="Send" />
               </Form>
             );
           }}
         </Formik>
         <div className="d-flex justify-content-between">
           <p className="pt-3 lead">
-            Please <Link to={"/register"}>register</Link> to get better
-            services.{" "}
-          </p>
-          <p className="pt-3 lead">
-            <Link to={"/forgot"}>Forgot Password</Link>
+            <Link to={"/login"}>Login</Link>
           </p>
         </div>
       </div>

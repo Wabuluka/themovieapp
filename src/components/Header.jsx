@@ -26,17 +26,26 @@ export function Header() {
               </NavLink>
             </li>
             <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                aria-current="page"
+                to="/subscription"
+              >
+                Plans
+              </NavLink>
+            </li>
+            <li className="nav-item">
               <NavLink className="nav-link" aria-current="page" to="/favorites">
                 Favorites
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link " aria-current="page" to="/rented">
-                Rented
+                Watchlist
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link " aria-current="page" to="/auth">
+              <NavLink className="nav-link " aria-current="page" to="/login">
                 Login
               </NavLink>
             </li>

@@ -5,7 +5,7 @@ export function Input({ name, placeholder, type, ...rest }) {
     <div className="mb-3">
       {/* <div className="form-control"> */}
       <Field
-        className="form-control"
+        className="form-control form-control-lg"
         placeholder={placeholder}
         id={name}
         name={name}
