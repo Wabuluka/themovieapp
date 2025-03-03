@@ -16,18 +16,28 @@ export function SingleMovie() {
     getMovie(id);
   }, []);
   return (
-    <div className="d-flex py-5">
+    <div className="d-flex py-5 flex-column justify-content-center align-items-center">
       <div className="row">
-        <div className="col-lg-5 single-movie">
+        <div className="col">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+            iure enim ratione eligendi ut sint deserunt saepe neque quas
+            repellendus. Assumenda voluptatem dolorem culpa laborum accusantium
+            tempora doloribus rerum. Ratione.
+          </p>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-lg-4 single-movie">
           <img
             src={movie?.img}
             alt=""
             className="rounded"
-            width="100%"
-            height={"100%"}
+            width="50%"
+            // height={"100%"}
           />
         </div>
-        <div className="col-lg-7  ">
+        <div className="col-lg-8 justify-content-between align-content-center">
           <div className="row">
             <div className="col-lg-12">
               <div className="">
@@ -38,6 +48,9 @@ export function SingleMovie() {
               <p className="lead">{movie?.desc}</p>
             </div>
             <div className="col-lg-12 d-flex gap-2 ">
+              <button type="button" className="btn btn-info">
+                Watch Trailer
+              </button>
               <button type="button" className="btn btn-info">
                 Buy - $40
               </button>

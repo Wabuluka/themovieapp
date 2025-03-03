@@ -11,8 +11,11 @@ import { ForgotPassword } from "./pages/auth/ForgotPassword";
 import { ResetPassword } from "./pages/auth/ResetPassword";
 import { Plans } from "./pages/Plans";
 import { SingleMovie } from "./pages/SingleMovie";
+import { useSelector } from "react-redux";
+import { NotFound } from "./pages/NotFound";
 
 function App() {
+  const { movieList } = useSelector((state) => state.movies);
   return (
     <BrowserRouter>
       <Header />
@@ -28,6 +31,7 @@ function App() {
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/subscription" element={<Plans />} />
           <Route path={`/movie/:id`} element={<SingleMovie />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />

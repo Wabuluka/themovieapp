@@ -69,7 +69,10 @@ export function Plans() {
                     ))}
                   </ul>
 
-                  <button type="button" className="w-100 btn btn-lg rounded-0">
+                  <button
+                    type="button"
+                    className="w-100 btn btn-main btn-lg rounded-0"
+                  >
                     Subscribe now
                   </button>
                 </div>

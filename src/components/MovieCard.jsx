@@ -1,7 +1,13 @@
 import { Link } from "react-router";
 import { FaHeart } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { addRemoveFavorite } from "../redux/favoriteSlice";
 
 export function MovieCard({ movie }) {
+  const dispatch = useDispatch();
+  const favoriteButton = (movie) => {
+    dispatch(addRemoveFavorite({ movie }));
+  };
   return (
     <div className="col-sm-3 mb-4 " key={movie?.title}>
       <div className="card movie-card">
@@ -11,7 +17,9 @@ export function MovieCard({ movie }) {
             <Link to={`/movie/${movie?.id}`}>{movie?.title}</Link>
           </h5>
           <span>
-            <FaHeart color="red" />
+            <button className="btn" onClick={() => favoriteButton(movie)}>
+              <FaHeart color="red" />
+            </button>
           </span>
         </div>
       </div>

@@ -1,6 +1,8 @@
 import { NavLink } from "react-router";
 import Logo from "../assets/img/movielogo.png";
+import { useSelector } from "react-redux";
 export function Header() {
+  const { favorites } = useSelector((state) => state.favorites);
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container">
@@ -36,7 +38,8 @@ export function Header() {
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" aria-current="page" to="/favorites">
-                Favorites
+                Favorites {""}
+                <span className="badge text-bg-danger">{favorites.length}</span>
               </NavLink>
             </li>
             <li className="nav-item">
