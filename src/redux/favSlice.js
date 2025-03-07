@@ -1,17 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const favoriteSlice = createSlice({
-  name: "favorite",
+const favSlice = createSlice({
+  name: "favorites",
   initialState: {
-    favorites: [],
+    favorites: JSON.parse(localStorage.getItem("favorites")) || [],
   },
   reducers: {
-    addRemoveFavorite(state, action) {
+    addFavRemoveFav(state, action) {
+      let favoriteMovies = state.favorites;
       const existingIndex = state.favorites.findIndex(
         (item) => item.id === action.payload.movie.id
       );
       if (existingIndex === -1) {
-        state.favorites.push(action.payload.movie);
+        favoriteMovies.push(action.payload.movie);
       } else {
         state.favorites = state.favorites.filter(
           (movie) => movie.id !== action.payload.movie.id
@@ -20,5 +21,6 @@ const favoriteSlice = createSlice({
     },
   },
 });
-export const { addRemoveFavorite } = favoriteSlice.actions;
-export default favoriteSlice.reducer;
+
+export const { addFavRemoveFav } = favSlice.actions;
+export default favSlice.reducer;

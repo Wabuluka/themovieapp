@@ -3,6 +3,7 @@ import Logo from "../assets/img/movielogo.png";
 import { useSelector } from "react-redux";
 export function Header() {
   const { favorites } = useSelector((state) => state.favorites);
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container">
@@ -39,7 +40,9 @@ export function Header() {
             <li className="nav-item">
               <NavLink className="nav-link" aria-current="page" to="/favorites">
                 Favorites {""}
-                <span className="badge text-bg-danger">{favorites.length}</span>
+                <span className="badge text-bg-danger">
+                  {JSON.parse(favorites.length)}
+                </span>
               </NavLink>
             </li>
             <li className="nav-item">
