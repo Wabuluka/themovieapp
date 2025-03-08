@@ -9,7 +9,7 @@ export const movies = [
   {
     id: 2,
     title: "The Night Manager",
-    img: "https://intheposter.com/cdn/shop/files/the-manager-in-the-poster-1.jpg?v=1733910535",
+    img: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1379785526i/18049276.jpg",
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     videoUrl: "https://www.youtube.com/embed/WDkg3h8PCVU",
   },

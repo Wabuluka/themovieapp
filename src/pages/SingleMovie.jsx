@@ -3,16 +3,20 @@ import { useParams } from "react-router";
 import ReactPlayer from "react-player";
 import { movies } from "../assets/movies";
 import { FaHeart } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { addFavRemoveFav } from "../redux/favSlice";
 export function SingleMovie() {
   const [isVideo, setIsVideo] = useState(false);
   const [movie, setMovie] = useState({});
   const { id } = useParams();
+  const dispatch = useDispatch();
 
+  const favoriteButton = (movie) => {
+    dispatch(addFavRemoveFav({ movie }));
+  };
   const getMovie = (myId) => {
-    console.log(myId);
     const result = movies.filter((m) => m.id == myId)[0];
     setMovie(result);
-    console.log(result);
   };
   useEffect(() => {
     getMovie(id);
@@ -79,7 +83,11 @@ export function SingleMovie() {
                   Add to Watchlist
                 </button>
 
-                <button type="button" className="btn btn-info">
+                <button
+                  type="button"
+                  className="btn btn-info"
+                  onClick={() => favoriteButton(movie)}
+                >
                   <FaHeart />
                 </button>
               </div>

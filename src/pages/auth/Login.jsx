@@ -1,15 +1,28 @@
 import { Form, Formik } from "formik";
 import { FormControl } from "../../components/form/FormControl";
 import { DefaultButton } from "../../components/buttons/DefaultButton";
-import { Link } from "react-router";
+import { Link, useNavigate, useLocation } from "react-router";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../../redux/authSlice";
 
 export function Login() {
+  const dispatch = useDispatch();
+  const location = useLocation();
+
+  const from = location.state?.from || "/";
+
+  // const { loading, error } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
   const initialValues = {
     email: "",
     password: "",
   };
-  const onSubmit = (values) => {
-    console.log("Form data", values);
+  const onSubmit = async (values) => {
+    const result = await dispatch(loginUser(values));
+    if (result.error) {
+      return;
+    }
+    navigate(from, { replace: true });
   };
   return (
     <div className="d-flex justify-content-center align-items-center authorization-page">
@@ -37,11 +50,11 @@ export function Login() {
           }}
         </Formik>
         <div className="d-flex justify-content-between">
-          <p className="pt-3 lead">
+          <p className="pt-3 ">
             Please <Link to={"/register"}>register</Link> to get better
             services.{" "}
           </p>
-          <p className="pt-3 lead">
+          <p className="pt-3">
             <Link to={"/forgot"}>Forgot Password</Link>
           </p>
         </div>
