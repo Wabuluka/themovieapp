@@ -32,7 +32,7 @@ export function Register() {
                   </div>
                   <div className="col-lg-6">
                     <FormControl
-                      name="lasstName"
+                      name="lastName"
                       control="input"
                       placeholder="Last Name"
                       type="text"
@@ -56,7 +56,7 @@ export function Register() {
             );
           }}
         </Formik>
-        <p className="pt-3 lead">
+        <p className="pt-3">
           Please <Link to={"/login"}>login</Link> to get better services.{" "}
         </p>
       </div>

@@ -1,6 +1,9 @@
+import { useSelector } from "react-redux";
 import { MovieCard } from "../components/MovieCard";
-import { movies } from "../assets/movies";
+
 function Home() {
+  const { movieList } = useSelector((state) => state.movies);
+
   return (
     <>
       <div className="d-flex align-items-center text-center search-card ">
@@ -10,8 +13,7 @@ function Home() {
               type="text"
               className="form-control form-control-lg"
               placeholder="Search Movie"
-              aria-label="Recipient's username"
-              aria-describedby="basic-addon2"
+              disabled
             />
             <span className="input-group-text" id="basic-addon2">
               Search
@@ -21,7 +23,7 @@ function Home() {
       </div>
 
       <div className="row">
-        {movies.map((movie) => (
+        {movieList.map((movie) => (
           <MovieCard movie={movie} key={movie.id} />
         ))}
       </div>
